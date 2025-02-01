@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="navStu" type="id" />
+    <item name="navTea" type="id" />
+    <item name="navAd" type="id" />
+    <item name="Login" type="id" />
+    <item name="Logout" type="id" />
+</resources>

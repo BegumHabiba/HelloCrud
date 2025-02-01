@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:icon="@drawable/create_24"
+        android:id="@+id/navCre1"
+        android:title="Create" />
+    <item
+        android:icon="@drawable/article_24"
+        android:id="@+id/navRe1"
+        android:title="Read" />
+
+    <item
+        android:icon="@drawable/logout_24"
+        android:id="@+id/navLogout1"
+        android:title="Logout" />
+
+</menu>

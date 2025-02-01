@@ -4,7 +4,7 @@ public class Model {
     private String courseId, courseName, year, pdfUrl, key, semester, examType, pdfType;
 
     // Default constructor
-    public Model() {}
+    public Model(String adminName, String courseId, String courseName, String examType, String yearName, String selectedSemester, String pdfType, String pdfUrl, String key) {}
 
     // Parameterized constructor
     public Model(String courseId, String courseName, String examType, String year, String semester, String pdfType, String pdfUrl, String key) {

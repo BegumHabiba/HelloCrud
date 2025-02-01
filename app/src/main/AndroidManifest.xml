@@ -17,6 +17,33 @@
         android:theme="@style/Theme.HelloCrud"
         tools:targetApi="31">
         <activity
+            android:name=".NevigationAd"
+            android:exported="false" />
+        <activity
+            android:name=".CreateActivityTea"
+            android:exported="false" />
+        <activity
+            android:name=".AdminLoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AdminSignUp"
+            android:exported="false" />
+        <activity
+            android:name=".CreateActivityTea"
+            android:exported="false" />
+        <activity
+            android:name=".TeaReadActivity"
+            android:exported="false" />
+        <activity
+            android:name=".NevigationTea"
+            android:exported="false" />
+        <activity
+            android:name=".TeaSignUp"
+            android:exported="false" />
+        <activity
+            android:name=".TeaLogin"
+            android:exported="false" />
+        <activity
             android:name=".Syllabus"
             android:exported="false" />
         <activity

@@ -5,4 +5,5 @@
     <item name="navAd" type="id" />
     <item name="Login" type="id" />
     <item name="Logout" type="id" />
+    <item name="title1" type="id" />
 </resources>

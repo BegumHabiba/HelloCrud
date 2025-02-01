@@ -23,7 +23,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-public class Nevigation extends AppCompatActivity {
+public class NevigationTea extends AppCompatActivity {
     private static final int PICK_IMAGE_REQUEST = 1;
     private static final String PREFS_NAME = "UserPrefs";
     private static final String KEY_IMAGE_URI = "profileImageUri";
@@ -41,7 +41,7 @@ public class Nevigation extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_nevigation);
+        setContentView(R.layout.activity_nevigation_tea);
 
         drawerLayout = findViewById(R.id.main);
         imageButton = findViewById(R.id.ButtomToggle);
@@ -62,8 +62,8 @@ public class Nevigation extends AppCompatActivity {
         // Set up image click listener to open gallery
         headerImage.setOnClickListener(v -> openGallery());
 
-        // Fetch student data from Firestorea
-        fetchStudentData();
+        // Fetch teacher data from Firestore
+        fetchTeacherData();
 
         // Open navigation drawer when the toggle button is clicked
         imageButton.setOnClickListener(view -> drawerLayout.openDrawer(GravityCompat.START));
@@ -75,18 +75,14 @@ public class Nevigation extends AppCompatActivity {
             if (itemId == R.id.navCre) {
                 showToastAndNavigate("Create Clicked", CreateActivity.class);
             } else if (itemId == R.id.navRe) {
-                showToastAndNavigate("Read Clicked", StuReadActivity.class);
-            } else if (itemId == R.id.navCGPA) {
-                showToastAndNavigate("CGPA Clicked", CGPACalculatorActivity.class);
-            } else if (itemId == R.id.navSYL) {
-                showToastAndNavigate("Syllabus Clicked", Syllabus.class);
+                showToastAndNavigate("Read Clicked", TeaReadActivity.class);
             } else if (itemId == R.id.navLogout) {
-                Toast.makeText(Nevigation.this, "Logging Out...", Toast.LENGTH_SHORT).show();
+                Toast.makeText(NevigationTea.this, "Logging Out...", Toast.LENGTH_SHORT).show();
                 FirebaseAuth.getInstance().signOut();
-                startActivity(new Intent(Nevigation.this, StuLoginActivity.class));
+                startActivity(new Intent(NevigationTea.this, TeaLogin.class));
                 finish();
             } else {
-                Toast.makeText(Nevigation.this, "Unknown Option", Toast.LENGTH_SHORT).show();
+                Toast.makeText(NevigationTea.this, "Unknown Option", Toast.LENGTH_SHORT).show();
             }
 
             drawerLayout.closeDrawer(GravityCompat.START); // Close the drawer
@@ -113,13 +109,13 @@ public class Nevigation extends AppCompatActivity {
         }
     }
 
-    private void fetchStudentData() {
+    private void fetchTeacherData() {
         FirebaseUser currentUser = auth.getCurrentUser();
 
         if (currentUser != null) {
             String userId = currentUser.getUid();
 
-            db.collection("Students").document(userId)
+            db.collection("Teachers").document(userId)
                     .get()
                     .addOnCompleteListener(task -> {
                         if (task.isSuccessful() && task.getResult() != null) {
@@ -127,11 +123,11 @@ public class Nevigation extends AppCompatActivity {
                             String name = document.getString("name");
                             String email = document.getString("email");
 
-                            // Update the header with student data
+                            // Update the header with teacher data
                             headerName.setText(name);
                             headerEmail.setText(email);
                         } else {
-                            Toast.makeText(Nevigation.this, "Failed to fetch student data", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(NevigationTea.this, "Failed to fetch teacher data", Toast.LENGTH_SHORT).show();
                         }
                     });
         } else {
@@ -140,8 +136,8 @@ public class Nevigation extends AppCompatActivity {
     }
 
     private void showToastAndNavigate(String message, Class<?> targetActivity) {
-        Toast.makeText(Nevigation.this, message, Toast.LENGTH_SHORT).show();
-        startActivity(new Intent(Nevigation.this, targetActivity));
+        Toast.makeText(NevigationTea.this, message, Toast.LENGTH_SHORT).show();
+        startActivity(new Intent(NevigationTea.this, targetActivity));
     }
 
     private void saveProfileImage(String imageUri) {

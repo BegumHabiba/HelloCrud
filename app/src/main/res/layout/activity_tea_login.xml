@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -5,7 +6,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".StuSignUp">
+    tools:context=".TeaLogin">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,7 +18,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/sign_up"
+            android:text="Sign In"
             android:textAlignment="center"
             android:textSize="25sp"
             android:layout_marginBottom="20dp"
@@ -32,16 +33,6 @@
             android:orientation="vertical">
 
             <EditText
-                android:id="@+id/name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/username"
-                android:inputType="text"
-                android:background="@drawable/border"
-                android:padding="20dp"
-                android:layout_marginBottom="10dp" />
-
-            <EditText
                 android:id="@+id/email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -51,68 +42,31 @@
                 android:padding="20dp"
                 android:layout_marginBottom="10dp" />
 
-            <EditText
-                android:id="@+id/et_batch"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/batch"
-                android:inputType="phone"
-                android:background="@drawable/border"
-                android:padding="20dp"
-                android:layout_marginBottom="10dp" />
-
-            <EditText
-                android:id="@+id/et_id"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="ID"
-                android:inputType="text"
-                android:background="@drawable/border"
-                android:padding="20dp"
-                android:layout_marginBottom="10dp" />
-
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                app:passwordToggleEnabled="true">
+                app:passwordToggleEnabled="true"
+                android:layout_marginBottom="10dp">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/pass"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/password"
                     android:inputType="textPassword"
-                    tools:ignore="TextContrastCheck" />
+                    android:id="@+id/pass" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <Button
                 android:id="@+id/submit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/submit" />
-
-            <!-- New Admin Signup Button -->
-            <Button
-                android:id="@+id/admin_signup"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Admin Signup"
-                android:layout_marginTop="10dp" />
-
-            <!-- New Teacher Signup Button -->
-            <Button
-                android:id="@+id/teacher_signup"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Teacher Signup"
-                android:layout_marginTop="10dp" />
+                android:text="@string/loginTitle" />
 
             <TextView
-                android:id="@+id/login"
+                android:id="@+id/register"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/already_have_an_account_login"
+                android:text="@string/don_t_have_an_account_sign_up"
                 android:textAlignment="center"
                 android:layout_marginTop="20dp" />
         </LinearLayout>
